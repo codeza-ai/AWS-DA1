@@ -10,7 +10,10 @@ async function getAFox(req, res) {
     const response = await axios.get(`https://pixabay.com/api/?key=${API_KEY}&q=fox&image_type=photo&pretty=true`);
     const images = response.data.hits;
     const selectedImage = images[Math.floor(Math.random() * images.length)].webformatURL;
-    res.json({ image: selectedImage });
+    res.json({ 
+      imageUrl: selectedImage,
+      encodedImage: Buffer.from(selectedImage).toString('base64') 
+     });
     //or we can send in encoded form using base64
     // res.json({ image: Buffer.from(selectedImage).toString('base64') });
   } catch (error) {

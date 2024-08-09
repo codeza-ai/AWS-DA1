@@ -11,6 +11,10 @@ app.use(express.json());
 const appRouter = require("./routes/index.js");
 app.use("/", appRouter);
 
+app.get("/", (req, res) => {
+    res.send("Nothing in here, go to- /fox or /ciry");
+});
+
 //Start script - "npm start"
 app.listen(PORT, () => {
     console.log(`Server is running on  http://localhost:${PORT}`);
