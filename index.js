@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 7777;//Thala for a reason :)
+const PORT = 7777 || process.env.PORT;
 
 //Deploy link - https://codechef-webdev-backend.onrender.com
 
@@ -17,5 +17,5 @@ app.get("/", (req, res) => {
 
 //Start script - "npm start"
 app.listen(PORT, () => {
-    console.log(`Server is running on  http://localhost:${PORT}`);
+    console.log(`Server is running on ${PORT}`);
 });
